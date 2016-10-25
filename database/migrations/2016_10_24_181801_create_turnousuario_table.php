@@ -15,16 +15,21 @@ class CreateTurnousuarioTable extends Migration
     {
         Schema::create('turnousuario', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_turnoAdmin');
             $table->date('fecha');
             $table->tinyInteger('confirmado');
             $table->tinyInteger('pagado');
             $table->tinyInteger('estado');
+            $table->integer('id_turnoAdmin')->unsigned()->default(0);
             $table->integer('id_usuario')->unsigned()->default(0);
 
             //Declaracion de las Foreign Keys
             $table->foreign('id_usuario')
                   ->references('id')->on('users')
+                  ->onDelete('restrict')
+                  ->onUpdate('restrict');
+
+            $table->foreign('id_turnoAdmin')
+                  ->references('id')->on('turnoadmin')
                   ->onDelete('restrict')
                   ->onUpdate('restrict');
         });

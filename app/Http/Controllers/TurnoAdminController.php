@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Establecimiento;
+use App\TurnoAdmin;
 
-class EstablecimientoController extends Controller
+class TurnoAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -49,7 +49,7 @@ class EstablecimientoController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(Establecimiento::find($id)));
+        return response()->json(json_encode(TurnoAdmin::find($id)));
     }
 
     /**
@@ -87,13 +87,13 @@ class EstablecimientoController extends Controller
     }
 
     /**
-     * Display the specified resource for User.
+     * Display a listing of the resource for user.
      *
      * @param  int  $idUser
      * @return \Illuminate\Http\Response
      */
     public function getForUser($idUser)
     {
-        return response()->json(json_encode(Establecimiento::where('id_usuario', '=', $idUser)->get()));
+        return response()->json(json_encode(TurnoAdmin::where('id_usuario_admin', '=', $idUser)->get()));
     }
 }

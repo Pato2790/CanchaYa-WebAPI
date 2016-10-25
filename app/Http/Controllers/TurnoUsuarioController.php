@@ -6,9 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
-use App\Establecimiento;
+use App\TurnoUsuario;
 
-class EstablecimientoController extends Controller
+class TurnoUsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class EstablecimientoController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(json_encode(TurnoUsuario::get()));
     }
 
     /**
@@ -49,7 +49,7 @@ class EstablecimientoController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(Establecimiento::find($id)));
+        return response()->json(json_encode(TurnoUsuario::find($id)));
     }
 
     /**
@@ -87,13 +87,14 @@ class EstablecimientoController extends Controller
     }
 
     /**
-     * Display the specified resource for User.
+     * Display the specified resource by date.
      *
-     * @param  int  $idUser
+     * @param  int  $id
+     * @param  string  $date
      * @return \Illuminate\Http\Response
      */
-    public function getForUser($idUser)
+    public function getForDate($idTurnoAdmin, $date)
     {
-        return response()->json(json_encode(Establecimiento::where('id_usuario', '=', $idUser)->get()));
+        return response()->json(json_encode(TurnoUsuario::where('id_turnoAdmin', '=', $idTurnoAdmin)->where('fecha', '=', $date)->get()));
     }
 }

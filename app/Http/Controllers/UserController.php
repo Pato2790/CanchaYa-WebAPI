@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+use App\User;
+
 class UserController extends Controller
 {
     /**
@@ -36,7 +38,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = User::create([
+            'name' => $request->get('name'),
+            'email' => $request->get('email'),
+            'password' => bcrypt($request->get('password')),
+            'admin' => 0,
+            'api_token' => str_random(60),
+        ]);
+
+        return ['api_key' => $user->api_token];
     }
 
     /**
