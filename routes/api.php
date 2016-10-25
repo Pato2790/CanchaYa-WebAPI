@@ -16,3 +16,14 @@ use Illuminate\Http\Request;
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+
+/*Route::group(['prefix' => 'v1'], function() {
+  Route::resource('establecimiento', 'EstablecimientoController');
+});*/
+
+Route::group(['middleware' => ['auth:api']], function () {
+    Route::resource('establecimiento', 'EstablecimientoController');
+    Route::get('/establecimiento', function (Request $request) {
+         return response()->json(['name' => 'establecimiento']);
+    });
+});
