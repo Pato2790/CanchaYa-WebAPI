@@ -17,7 +17,7 @@ class SuperficieController extends Controller
      */
     public function index()
     {
-        return response()->json(json_encode(Superficie::get()));
+        return response()->json(Superficie::get());
     }
 
     /**
@@ -49,7 +49,7 @@ class SuperficieController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(Superficie::find($id)));
+        return response()->json(Superficie::find($id));
     }
 
     /**

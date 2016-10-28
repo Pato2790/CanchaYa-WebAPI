@@ -17,7 +17,7 @@ class TurnoUsuarioController extends Controller
      */
     public function index()
     {
-        return response()->json(json_encode(TurnoUsuario::get()));
+        return response()->json(TurnoUsuario::get());
     }
 
     /**
@@ -49,7 +49,7 @@ class TurnoUsuarioController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(TurnoUsuario::find($id)));
+        return response()->json(TurnoUsuario::find($id));
     }
 
     /**
@@ -95,6 +95,6 @@ class TurnoUsuarioController extends Controller
      */
     public function getForDate($idTurnoAdmin, $date)
     {
-        return response()->json(json_encode(TurnoUsuario::where('id_turnoAdmin', '=', $idTurnoAdmin)->where('fecha', '=', $date)->get()));
+        return response()->json(TurnoUsuario::where('id_turnoAdmin', '=', $idTurnoAdmin)->where('fecha', '=', $date)->get());
     }
 }

@@ -551,6 +551,5 @@ return array(
     'SuperficieSeeder' => $baseDir . '/database/seeds/SuperficieSeeder.php',
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
-    'UpdateTurnoAdminTable' => $baseDir . '/database/migrations/2016_10_25_193700_update_TurnoAdmin_table.php',
-    'UpdateUserstokenTable' => $baseDir . '/database/migrations/2016_10_25_024002_update_userstoken_table.php',
+    'UpdateUserTable' => $baseDir . '/database/migrations/2016_10_28_220850_update_user_table.php',
 );

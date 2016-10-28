@@ -823,8 +823,7 @@ class ComposerStaticInitdfe49a9ad02aeb5c212553c82e2500f8
         'SuperficieSeeder' => __DIR__ . '/../..' . '/database/seeds/SuperficieSeeder.php',
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
-        'UpdateTurnoAdminTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_25_193700_update_TurnoAdmin_table.php',
-        'UpdateUserstokenTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_25_024002_update_userstoken_table.php',
+        'UpdateUserTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_28_220850_update_user_table.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

@@ -17,7 +17,7 @@ class CiudadController extends Controller
      */
     public function index()
     {
-        return response()->json(json_encode(Ciudad::get()));
+        return response()->json(Ciudad::get());
     }
 
     /**

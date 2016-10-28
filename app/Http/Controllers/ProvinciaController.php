@@ -17,7 +17,7 @@ class ProvinciaController extends Controller
      */
     public function index()
     {
-        return response()->json(json_encode(Provincia::get()));
+        return response()->json(Provincia::get());
     }
 
     /**
@@ -49,7 +49,7 @@ class ProvinciaController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(Provincia::find($id)));
+        return response()->json(Provincia::find($id));
     }
 
     /**

@@ -49,7 +49,7 @@ class EstablecimientoController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(Establecimiento::find($id)));
+        return response()->json(Establecimiento::find($id));
     }
 
     /**

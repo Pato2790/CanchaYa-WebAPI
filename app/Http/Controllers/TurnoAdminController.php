@@ -49,7 +49,7 @@ class TurnoAdminController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(TurnoAdmin::find($id)));
+        return response()->json(TurnoAdmin::find($id));
     }
 
     /**
@@ -94,6 +94,6 @@ class TurnoAdminController extends Controller
      */
     public function getForUser($idUser)
     {
-        return response()->json(json_encode(TurnoAdmin::where('id_usuario_admin', '=', $idUser)->get()));
+        return response()->json(TurnoAdmin::where('id_usuario_admin', '=', $idUser)->get());
     }
 }

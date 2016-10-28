@@ -17,7 +17,7 @@ class DeporteController extends Controller
      */
     public function index()
     {
-        return response()->json(json_encode(Deporte::get()));
+        return response()->json(Deporte::get());
     }
 
     /**

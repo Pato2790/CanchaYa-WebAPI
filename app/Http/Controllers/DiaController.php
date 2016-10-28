@@ -17,7 +17,7 @@ class DiaController extends Controller
      */
     public function index()
     {
-        return response()->json(json_encode(Dia::get()));
+        return response()->json(Dia::get());
     }
 
     /**
@@ -49,7 +49,7 @@ class DiaController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(Dia::find($id)));
+        return response()->json(Dia::find($id));
     }
 
     /**

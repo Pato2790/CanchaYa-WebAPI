@@ -49,7 +49,7 @@ class CanchaController extends Controller
      */
     public function show($id)
     {
-        return response()->json(json_encode(Cancha::find($id)));
+        return response()->json(Cancha::find($id));
     }
 
     /**
@@ -94,6 +94,6 @@ class CanchaController extends Controller
      */
     public function getForEstablecimiento($idEstab)
     {
-        return response()->json(json_encode(Cancha::where('id_establecimiento', '=', $idEstab)->get()));
+        return response()->json(Cancha::where('id_establecimiento', '=', $idEstab)->get());
     }
 }
