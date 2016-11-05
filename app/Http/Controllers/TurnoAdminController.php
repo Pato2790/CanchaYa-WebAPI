@@ -96,4 +96,9 @@ class TurnoAdminController extends Controller
     {
         return response()->json(TurnoAdmin::where('id_usuario_admin', '=', $idUser)->get());
     }
+
+    public function getForCancha($idCancha)
+    {
+        return response()->json(TurnoAdmin::where('id_cancha', '=', $idCancha)->get());
+    }
 }

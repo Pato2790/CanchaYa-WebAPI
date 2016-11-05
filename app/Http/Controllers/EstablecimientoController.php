@@ -94,6 +94,6 @@ class EstablecimientoController extends Controller
      */
     public function getForUser($idUser)
     {
-        return response()->json(json_encode(Establecimiento::where('id_usuario', '=', $idUser)->get()));
+        return response()->json(Establecimiento::where('id_usuario', '=', $idUser)->get());
     }
 }

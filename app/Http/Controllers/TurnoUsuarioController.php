@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 
 use App\TurnoUsuario;
+use App\TurnoAdmin;
+
+use DB;
 
 class TurnoUsuarioController extends Controller
 {
@@ -93,8 +96,32 @@ class TurnoUsuarioController extends Controller
      * @param  string  $date
      * @return \Illuminate\Http\Response
      */
-    public function getForDate($idTurnoAdmin, $date)
+    public function getForDate($date, $idDia, $idCancha)
     {
-        return response()->json(TurnoUsuario::where('id_turnoAdmin', '=', $idTurnoAdmin)->where('fecha', '=', $date)->get());
+        $result = array();
+
+        $turnosAdmin = TurnoAdmin::
+                            where('id_cancha', '=', $idCancha)
+                            ->where('id_dia', '=', $idDia)
+                            ->get();
+
+        foreach ($turnosAdmin as $turnoAdmin) {
+            
+            $turnoUser = $turnoAdmin
+                            ->turnoUsuario()
+                            ->where('fecha', '=', $date)
+                            ->first();
+
+            if(!is_null($turnoUser))
+            {
+                $result[] = $turnoUser;
+            }
+            else
+            {
+                $result[] = ['id' => null];
+            }
+        }
+
+        return response()->json($result);
     }
 }

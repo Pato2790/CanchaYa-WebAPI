@@ -29,13 +29,14 @@ Route::group(['middleware' => ['auth:api']], function () {
     Route::get('/establecimiento/getForUser/{idUser}', 'EstablecimientoController@getForUser');
 
     Route::resource('cancha', 'CanchaController');
-    Route::get('/cancha/getForEstablecimiento/{idEstab}', 'EstablecimientoController@getForEstablecimiento');
+    Route::get('/cancha/getForEstablecimiento/{idEstab}', 'CanchaController@getForEstablecimiento');
 
 	Route::resource('turnoadmin', 'TurnoAdminController');
 	Route::get('/turnoadmin/getForUser/{idUser}', 'TurnoAdminController@getForUser');
+	Route::get('/turnoadmin/getForCancha/{idCancha}', 'TurnoAdminController@getForCancha');
 
 	Route::resource('turnousuario', 'TurnoUsuarioController');
-	Route::get('/turnousuario/getForDate/{idTurnoAdmin}/{date}', 'TurnoUsuarioController@getForDate');
+	Route::get('/turnousuario/getForDate/{date}/{idDia}/{idCancha}', 'TurnoUsuarioController@getForDate');
 
 	Route::resource('turnoespecial', 'TurnoEspecialController');
 

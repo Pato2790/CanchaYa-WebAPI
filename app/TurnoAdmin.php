@@ -21,11 +21,16 @@ class TurnoAdmin extends Model
         return $this->belongsTo('App\User','id_usuario_admin');
     }
 
-     public function dia()
+    public function dia()
     {
         return $this->belongsTo('App\Dia','id_dia');
     }
-    
+
+    public function turnoUsuario()
+    {
+        return $this->hasMany('App\TurnoUsuario', 'id');
+    }
+
     public function scopeTurnos($query, $fecha_turno)
     {
         $query->where('fecha_inicio','=',$fecha_turno);
