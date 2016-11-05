@@ -552,4 +552,5 @@ return array(
     'TestCase' => $baseDir . '/tests/TestCase.php',
     'Text_Template' => $vendorDir . '/phpunit/php-text-template/src/Template.php',
     'UpdateUserTable' => $baseDir . '/database/migrations/2016_10_28_220850_update_user_table.php',
+    'UpdateUsersTable' => $baseDir . '/database/migrations/2016_11_05_232421_update_Users_Table.php',
 );
