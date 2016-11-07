@@ -28,7 +28,7 @@ class TurnoAdmin extends Model
 
     public function turnoUsuario()
     {
-        return $this->hasMany('App\TurnoUsuario', 'id');
+        return $this->hasMany('App\TurnoUsuario', 'id_turnoAdmin');
     }
 
     public function scopeTurnos($query, $fecha_turno)

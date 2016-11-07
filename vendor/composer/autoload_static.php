@@ -824,6 +824,7 @@ class ComposerStaticInitdfe49a9ad02aeb5c212553c82e2500f8
         'TestCase' => __DIR__ . '/../..' . '/tests/TestCase.php',
         'Text_Template' => __DIR__ . '/..' . '/phpunit/php-text-template/src/Template.php',
         'UpdateUserTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_28_220850_update_user_table.php',
+        'UpdateUserTokenTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_07_180435_update_userToken_table.php',
         'UpdateUsersTable' => __DIR__ . '/../..' . '/database/migrations/2016_11_05_232421_update_Users_Table.php',
     );
 

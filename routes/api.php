@@ -35,8 +35,10 @@ Route::group(['middleware' => ['auth:api']], function () {
 	Route::get('/turnoadmin/getForUser/{idUser}', 'TurnoAdminController@getForUser');
 	Route::get('/turnoadmin/getForCancha/{idCancha}', 'TurnoAdminController@getForCancha');
 
-	Route::resource('turnousuario', 'TurnoUsuarioController');
+	Route::resource('turnousuario', 'TurnoUsuarioController',
+					['only' => ['index', 'show', 'destroy']]);
 	Route::get('/turnousuario/getForDate/{date}/{idDia}/{idCancha}', 'TurnoUsuarioController@getForDate');
+	Route::post('/turnousuario/store/{idTurnoAdmin}/{date}/{idUser}', 'TurnoUsuarioController@store');
 
 	Route::resource('turnoespecial', 'TurnoEspecialController');
 

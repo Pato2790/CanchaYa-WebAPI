@@ -39,9 +39,17 @@ class TurnoUsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($idTurnoAdmin, $date, $idUser)
     {
-        //
+        return response()->json(TurnoUsuario::
+            create([
+                "fecha" => $date,
+                "confirmado" => 0,
+                "estado" => 0,
+                "pagado" => 0,
+                "id_usuario" => $idUser,
+                "id_turnoAdmin" => $idTurnoAdmin
+            ]));
     }
 
     /**
@@ -86,7 +94,7 @@ class TurnoUsuarioController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return response()->json(TurnoUsuario::destroy($id));
     }
 
     /**
@@ -109,19 +117,17 @@ class TurnoUsuarioController extends Controller
             
             $turnoUser = $turnoAdmin
                             ->turnoUsuario()
-                            ->where('fecha', '=', $date)
+                            ->whereDate('fecha', '=', $date)
                             ->first();
-
             if(!is_null($turnoUser))
             {
                 $result[] = $turnoUser;
             }
             else
             {
-                $result[] = ['id' => null];
+                $result[] = ['id' => null, 'id_turnoAdmin' => $turnoAdmin->id];
             }
         }
-
         return response()->json($result);
     }
 }
